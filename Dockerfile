@@ -4,11 +4,11 @@ WORKDIR /app
 COPY . .
 RUN go mod init angolar.com/m
 
-RUN env GOOS=linux go build -o rooks
+RUN env GOOS=linux go build -o rocks
 
 FROM scratch
 
 WORKDIR /app
-COPY --from=builder /app/rooks .
+COPY --from=builder /app/rocks .
 
-CMD [ "./rooks" ]
+CMD [ "./rocks" ]
